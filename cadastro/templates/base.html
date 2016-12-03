@@ -1,0 +1,115 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="keywords" content="Nuvem, comapare, cloud, computing">
+        <meta name="description" content="Ferramenta de Comparação em nuvem com intuito acadêmico">
+        <title>Nuvem Review | Comparação de Serviços em Nuvem</title>
+
+    {% block title %}
+
+    {% endblock title %}
+
+        <!-- Bootstrap -->
+        <link href="../static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Font Awesome -->
+        <link href="../static/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <!-- NProgress -->
+        <link href="../static/vendors/nprogress/nprogress.css" rel="stylesheet">
+        <!-- iCheck -->
+        <link href="../static/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+        <!-- bootstrap-progressbar -->
+        <link href="../static/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+        <!-- JQVMap -->
+        <link href="../static/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+
+        <!-- Custom Theme Style -->
+        <link href="../static/build/css/custom.min.css" rel="stylesheet">
+    </head>
+    <body>
+
+      <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+             <div class="container">
+                 <div class="navbar-header">
+                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                         <span class="sr-only">Toggle navigation</span>
+                         <span class="icon-bar"></span>
+                         <span class="icon-bar"></span>
+                         <span class="icon-bar"></span>
+                     </button>
+                     <a class="navbar-brand" href="{% url 'home' %}">Nuvem Review</a>
+                     <i class="center-block fa fa-5x -upload fa-fw m-y-2 text-inverse fa-cloud"></i>
+                 </div>
+                 <!-- Collect the nav links, forms, and other content for toggling -->
+                 <div class="collapse navbar-collapse navbar-ex1-collapse">
+                     <ul class="nav navbar-nav">
+                         <li><a href="{% url 'home' %}">Início</a></li>
+                         <li><a href="{% url 'lista' %}">Listagem de Serviços Cadastrados</a></li>
+                         <li><a href="{% url 'cadastro' %}">Inclusão Manual</a></li>
+
+                     </ul>
+
+                 </div>
+               </div>
+      </nav>
+  <br><br><br><br>
+	{% block content %}
+
+	{% endblock content %}
+
+    <!-- jQuery -->
+
+    <script src="../static/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../static/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="../static/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="../static/vendors/nprogress/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="../static/vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <script src="../static/vendors/gauge.js/dist/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="../static/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="../static/vendors/iCheck/icheck.min.js"></script>
+    <!-- Skycons -->
+    <script src="../static/vendors/skycons/skycons.js"></script>
+    <!-- Flot -->
+    <script src="../static/vendors/Flot/jquery.flot.js"></script>
+    <script src="../static/vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="../static/vendors/Flot/jquery.flot.time.js"></script>
+    <script src="../static/vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="../static/vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="../static/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="../static/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="../static/vendors/flot.curvedlines/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="../static/vendors/DateJS/build/date.js"></script>
+    <!-- JQVMap -->
+    <script src="../static/vendors/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="../static/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="../static/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="../static/js/moment/moment.min.js"></script>
+    <script src="../static/js/datepicker/daterangepicker.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="../static/build/js/custom.min.js"></script>
+
+    <!-- Rodaṕé -->
+
+    <footer>
+    <nav class="navbar navbar-fixed-bottom navbar-inverse" role="navigation">
+    <div class="pull-right">
+    Esta aplicação faz parte da Ferramenta  <a href="http://nuvem.review">Nuvem.Review</a> <br>
+    Desenvolvida em Django + Bootstrap Admin Template</a>
+    </div>
+    <div class="clearfix"></div>
+    </footer>
+    </body>
+</html>
