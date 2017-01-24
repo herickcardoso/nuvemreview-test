@@ -11,9 +11,13 @@
 						<th>Serviço</th>
 						<th>Valor</th>
 						<th>CPU</th>
+						<th>Clock CPU</th>
 						<th>RAM</th>
 						<th>S.O.</th>
 						<th>Armazenamento</th>
+						<th>Scale Up</th>
+						<th>Scale Down</th>
+						<th>Datacenters</th>
 						<th>Criado em</th>
 					</tr>
 				</thead>
@@ -21,11 +25,15 @@
 				{% for inscricao in page_obj %}
 					<tr>
 						<td>{{ inscricao.nome }}</td>
-						<td>{{ inscricao.cpf }}</td>
-						<td>{{ inscricao.idade }}</td>
-						<td>{{ inscricao.dobro_idade }}</td>
-						<td>{{ inscricao.email }}</td>
-						<td>{{ inscricao.telefone }}</td>
+						<td>{{ inscricao.valor }}</td>
+						<td>{{ inscricao.CPU }}</td>
+						<td>{{ inscricao.clockCPU}}</td>
+						<td>{{ inscricao.RAM }}</td>
+						<td>{{ inscricao.SO }}</td>
+						<td>{{ inscricao.armazenamento }}</td>
+						<td>{{ inscricao.scaleup }}</td>
+						<td>{{ inscricao.scaledown }}</td>
+						<td>{{ inscricao.datacenters }}</td>
 						<td>{{ inscricao.criado_em|date:"d/m/Y" }}</td>
 					</tr>
 				{% empty %}

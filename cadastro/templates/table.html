@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="keywords" content="Nuvem, comapare, cloud, computing">
+        <meta name="description" content="Ferramenta de Comparação em nuvem com intuito acadêmico">
+        <title>Nuvem Review | Comparação de Serviços em Nuvem</title>
+        <link rel="icon" href="../static/img/favicon.ico">
+
+
+    <!-- Bootstrap -->
+    <link href="../static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../static/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../static/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="../static/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- Datatables -->
+    <link href="../static/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="../static/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="../static/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="../static/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="../static/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="../static/build/css/custom.min.css" rel="stylesheet">
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+
+        <!-- page content -->
+        <div class="" role="main">
+          <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+                 <div class="container">
+                     <div class="navbar-header">
+                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                             <span class="sr-only">Toggle navigation</span>
+                             <span class="icon-bar"></span>
+                             <span class="icon-bar"></span>
+                             <span class="icon-bar"></span>
+                         </button>
+                         <a class="navbar-brand" href="{% url 'home' %}">Nuvem Review</a>
+                         <i class="center-block fa fa-5x -upload fa-fw m-y-2 text-inverse fa-cloud"></i>
+                     </div>
+                     <!-- Collect the nav links, forms, and other content for toggling -->
+                     <div class="collapse navbar-collapse navbar-ex1-collapse">
+                         <ul class="nav navbar-nav">
+                             <li><a href="{% url 'home' %}">Início</a></li>
+                             <li><a href="{% url 'lista' %}">Serviços Cadastrados</a></li>
+                             <li><a href="{% url 'cadastro' %}">Inclusão Manual</a></li>
+                             <li><a href="{% url 'barras' %}">Barras</a></li>
+                             <li><a href="{% url 'radar' %}">Radar</a></li>
+                             <li><a href="{% url 'review' %}">Review</a></li>
+
+                         </ul>
+
+                     </div>
+                   </div>
+          </nav>
+      <br><br><br><br>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                  <h2>Lista de Serviços <small>IaaS</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <p class="text-muted font-13 m-b-30">
+                      Você pode salvar os dados encontrados aqui, caso ache conveniente
+                    </p>
+                    <table id="datatable-buttons" class="table table-striped table-bordered">
+                      <thead>
+                         <tr>
+                           <th>Serviço</th>
+                           <th>Valor</th>
+                           <th>CPU</th>
+                           <th>Clock CPU</th>
+                           <th>RAM</th>
+                           <th>S.O.</th>
+                           <th>Armazenamento</th>
+                           <th>Scale Up</th>
+                           <th>Scale Down</th>
+                           <th>Datacenters</th>
+                           <th>Criado em</th>
+
+                         </tr>
+                       </thead>
+                       <tbody>
+                       {% for inscricao in page_obj %}
+                         <tr>
+                           <td>{{ inscricao.nome }}</td>
+                           <td>{{ inscricao.valor }}</td>
+                           <td>{{ inscricao.CPU }}</td>
+                           <td>{{ inscricao.clockCPU}}</td>
+                           <td>{{ inscricao.RAM }}</td>
+                           <td>{{ inscricao.SO }}</td>
+                           <td>{{ inscricao.armazenamento }}</td>
+                           <td>{{ inscricao.scaleup }}</td>
+                           <td>{{ inscricao.scaledown }}</td>
+                           <td>{{ inscricao.datacenters }}</td>
+                           <td>{{ inscricao.criado_em|date:"d/m/Y" }}</td>
+                         </tr>
+                       {% empty %}
+                       <tr>
+                         <td>Atlantic.net</td>
+                         <td>20,00</td>
+                         <td>2</td>
+                         <td>4,20</td>
+                         <td>2,0</td>
+                         <td>linux</td>
+                         <td>80</td>
+                         <td>1</td>
+                         <td>1</td>
+                         <td>3</td>
+                         <td>05/12/2016</td>
+                       </tr>
+
+                       <tr>
+                         <td>M5 Medium</td>
+                         <td>37,00</td>
+                         <td>2</td>
+                         <td>3,60</td>
+                         <td>4,0</td>
+                         <td>linux</td>
+                         <td>20 HD</td>
+                         <td>1</td>
+                         <td>1</td>
+                         <td>5</td>
+                         <td>05/12/2016</td>
+                       </tr>
+
+                       <tr>
+                         <td>DreamHost</td>
+                         <td>12,00</td>
+                         <td>1</td>
+                         <td>4,80</td>
+                         <td>2,0</td>
+                         <td>linux</td>
+                         <td>80</td>
+                         <td>1</td>
+                         <td>1</td>
+                         <td>1</td>
+                         <td>05/12/2016</td>
+                       </tr>
+
+                       <tr>
+                         <td>CloudSigma</td>
+                         <td>14,00</td>
+                         <td>1</td>
+                         <td>2,25</td>
+                         <td>2,0</td>
+                         <td>linux</td>
+                         <td>20 HD</td>
+                         <td>1</td>
+                         <td>1</td>
+                         <td>1</td>
+                         <td>05/12/2016</td>
+                       </tr>
+
+                       <tr>
+                         <td>Go4servers</td>
+                         <td>17,00</td>
+                         <td>1</td>
+                         <td>5,20</td>
+                         <td>2,0</td>
+                         <td>linux</td>
+                         <td>100</td>
+                         <td>1</td>
+                         <td>1</td>
+                         <td>1</td>
+                         <td>05/12/2016</td>
+                       </tr>
+
+                       <tr>
+                         <td>Exoscale</td>
+                         <td>18,00</td>
+                         <td>2</td>
+                         <td>4,00</td>
+                         <td>2,0</td>
+                         <td>linux</td>
+                         <td>20</td>
+                         <td>1</td>
+                         <td>1</td>
+                         <td>10</td>
+                         <td>05/12/2016</td>
+                       </tr>
+
+                       <tr>
+                         <td>Zippycloud</td>
+                         <td>20,00</td>
+                         <td>1</td>
+                         <td>2,40</td>
+                         <td>2,0</td>
+                         <td>linux</td>
+                         <td>30</td>
+                         <td>1</td>
+                         <td>1</td>
+                         <td>1</td>
+                         <td>05/12/2016</td>
+                       </tr>
+
+                       <tr>
+                         <td>Cloudware</td>
+                         <td>21,00</td>
+                         <td>1</td>
+                         <td>5,10</td>
+                         <td>2,0</td>
+                         <td>linux</td>
+                         <td>20</td>
+                         <td>1</td>
+                         <td>1</td>
+                         <td>1</td>
+                         <td>05/12/2016</td>
+                       </tr>
+
+                       <tr>
+                         <td>VPSnet</td>
+                         <td>24,00</td>
+                         <td>4</td>
+                         <td>4,20</td>
+                         <td>2,0</td>
+                         <td>linux</td>
+                         <td>50</td>
+                         <td>1</td>
+                         <td>1</td>
+                         <td>1</td>
+                         <td>05/12/2016</td>
+                       </tr>
+
+                       <tr>
+                         <td>Google Custom Machine</td>
+                         <td>24,00</td>
+                         <td>1</td>
+                         <td>3,75</td>
+                         <td>2,0</td>
+                         <td>linux</td>
+                         <td>20</td>
+                         <td>1</td>
+                         <td>1</td>
+                         <td>1</td>
+                         <td>05/12/2016</td>
+                       </tr>
+                        <tr>
+                                   <td>Windows Azure</td>
+                                   <td>27,00</td>
+                                   <td>1</td>
+                                   <td>2,90</td>
+                                   <td>2,0</td>
+                                   <td>linux</td>
+                                   <td>20</td>
+                                   <td>1</td>
+                                   <td>1</td>
+                                   <td>1</td>
+                                   <td>05/12/2016</td>
+                                 </tr>
+
+                                 <tr>
+                                   <td>e24cloud</td>
+                                   <td>28,00</td>
+                                   <td>1</td>
+                                   <td>2,30</td>
+                                   <td>2,0</td>
+                                   <td>linux</td>
+                                   <td>40</td>
+                                   <td>1</td>
+                                   <td>1</td>
+                                   <td>1</td>
+                                   <td>05/12/2016</td>
+                                 </tr>
+
+                                 <tr>
+                                   <td>eApps</td>
+                                   <td>35,00</td>
+                                   <td>1</td>
+                                   <td>4,00</td>
+                                   <td>2,0</td>
+                                   <td>linux</td>
+                                   <td>25</td>
+                                   <td>1</td>
+                                   <td>1</td>
+                                   <td>1</td>
+                                   <td>05/12/2016</td>
+                                 </tr>
+
+                                 <tr>
+                                   <td>Leading Edge</td>
+                                   <td>39,00</td>
+                                   <td>1</td>
+                                   <td>2,60</td>
+                                   <td>2,0</td>
+                                   <td>linux</td>
+                                   <td>20</td>
+                                   <td>1</td>
+                                   <td>1</td>
+                                   <td>1</td>
+                                   <td>05/12/2016</td>
+                                 </tr>
+
+                                 <tr>
+                                   <td>Zettagrid</td>
+                                   <td>45,00</td>
+                                   <td>1</td>
+                                   <td>2,10</td>
+                                   <td>2,0</td>
+                                   <td>linux</td>
+                                   <td>20</td>
+                                   <td>1</td>
+                                   <td>1</td>
+                                   <td>1</td>
+                                   <td>05/12/2016</td>
+                                 </tr>
+
+                                 <tr>
+                                   <td>JoyentCloud</td>
+                                   <td>47,00</td>
+                                   <td>1</td>
+                                   <td>4,00</td>
+                                   <td>2,0</td>
+                                   <td>linux</td>
+                                   <td>66</td>
+                                   <td>1</td>
+                                   <td>1</td>
+                                   <td>1</td>
+                                   <td>05/12/2016</td>
+                                 </tr>
+
+                                 <tr>
+                                   <td>Amazon Web Services</td>
+                                   <td>51,00</td>
+                                   <td>1</td>
+                                   <td>3,00</td>
+                                   <td>3,7</td>
+                                   <td>linux</td>
+                                   <td>20</td>
+                                   <td>1</td>
+                                   <td>1</td>
+                                   <td>1</td>
+                                   <td>05/12/2016</td>
+                                 </tr>
+
+                                 <tr>
+                                   <td>Elastichosts</td>
+                                   <td>52,00</td>
+                                   <td>2</td>
+                                   <td>5,60</td>
+                                   <td>2,0</td>
+                                   <td>linux</td>
+                                   <td>20</td>
+                                   <td>1</td>
+                                   <td>1</td>
+                                   <td>1</td>
+                                   <td>05/12/2016</td>
+                                 </tr>
+
+                                 <tr>
+                                   <td>Rockspace Hosting</td>
+                                   <td>54,00</td>
+                                   <td>2</td>
+                                   <td>5,60</td>
+                                   <td>2,0</td>
+                                   <td>linux</td>
+                                   <td>60</td>
+                                   <td>1</td>
+                                   <td>1</td>
+                                   <td>1</td>
+                                   <td>05/12/2016</td>
+                                 </tr>
+
+                                 <tr>
+                                   <td>Gigenet</td>
+                                   <td>57,00</td>
+                                   <td>1</td>
+                                   <td>2,10</td>
+                                   <td>2,0</td>
+                                   <td>linux</td>
+                                   <td>40</td>
+                                   <td>1</td>
+                                   <td>1</td>
+                                   <td>1</td>
+                                   <td>05/12/2016</td>
+                                 </tr>
+                                 <tr>
+                      						<td>Dimension Data</td>
+                      						<td>61,00</td>
+                      						<td>1</td>
+                      						<td>2,00</td>
+                      						<td>2,0</td>
+                      						<td>linux</td>
+                      						<td>20</td>
+                      						<td>1</td>
+                      						<td>1</td>
+                      						<td>1</td>
+                      						<td>05/12/2016</td>
+                      					</tr>
+
+                      					<tr>
+                      						<td>Bitrefinery</td>
+                      						<td>71,00</td>
+                      						<td>1</td>
+                      						<td>2,80</td>
+                      						<td>2,0</td>
+                      						<td>linux</td>
+                      						<td>20</td>
+                      						<td>1</td>
+                      						<td>1</td>
+                      						<td>1</td>
+                      						<td>05/12/2016</td>
+                      					</tr>
+
+                      					<tr>
+                      						<td>Storm</td>
+                      						<td>76,00</td>
+                      						<td>1</td>
+                      						<td>8,60</td>
+                      						<td>2,7</td>
+                      						<td>linux</td>
+                      						<td>35</td>
+                      						<td>1</td>
+                      						<td>1</td>
+                      						<td>1</td>
+                      						<td>05/12/2016</td>
+                      					</tr>
+
+                      					<tr>
+                      						<td>Hyve</td>
+                      						<td>77</td>
+                      						<td>1</td>
+                      						<td>4,50</td>
+                      						<td>2,0</td>
+                      						<td>linux</td>
+                      						<td>20</td>
+                      						<td>1</td>
+                      						<td>1</td>
+                      						<td>1</td>
+                      						<td>05/12/2016</td>
+                      					</tr>
+
+                      					<tr>
+                      						<td>StratoGen</td>
+                      						<td>111,00</td>
+                      						<td>1</td>
+                      						<td>5,00</td>
+                      						<td>2,0</td>
+                      						<td>linux</td>
+                      						<td>20</td>
+                      						<td>1</td>
+                      						<td>1</td>
+                      						<td>1</td>
+                      						<td>05/12/2016</td>
+                      					</tr>
+                       {% endfor %}
+                       </tbody>
+
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+          <nav class="navbar navbar-fixed-bottom navbar-inverse" role="navigation">
+          <div class="pull-right">
+          Esta aplicação faz parte da Ferramenta  <a href="http://nuvem.review">Nuvem.Review</a> <br>
+          Desenvolvida em Django + Bootstrap Admin Template
+          </div>
+          <i class="left-block fa fa-3x -upload fa-fw m-y-2 text-inverse fa-cloud"></i>
+          <div class="clearfix"></div>
+
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../static/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../static/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="../static/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="../static/vendors/nprogress/nprogress.js"></script>
+    <!-- iCheck -->
+    <script src="../static/vendors/iCheck/icheck.min.js"></script>
+    <!-- Datatables -->
+    <script src="../static/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="../static/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="../static/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="../static/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="../static/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="../static/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="../static/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="../static/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="../static/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="../static/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../static/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="../static/vendors/datatables.net-scroller/js/datatables.scroller.min.js"></script>
+    <script src="../static/vendors/jszip/dist/jszip.min.js"></script>
+    <script src="../static/vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="../static/vendors/pdfmake/build/vfs_fonts.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="../static/build/js/custom.min.js"></script>
+
+    <!-- Datatables -->
+    <script>
+      $(document).ready(function() {
+        var handleDataTableButtons = function() {
+          if ($("#datatable-buttons").length) {
+            $("#datatable-buttons").DataTable({
+              dom: "Bfrtip",
+              buttons: [
+                {
+                  extend: "copy",
+                  className: "btn-sm"
+                },
+                {
+                  extend: "csv",
+                  className: "btn-sm"
+                },
+                {
+                  extend: "excel",
+                  className: "btn-sm"
+                },
+                {
+                  extend: "pdfHtml5",
+                  className: "btn-sm"
+                },
+                {
+                  extend: "print",
+                  className: "btn-sm"
+                },
+              ],
+              responsive: true
+            });
+          }
+        };
+
+        TableManageButtons = function() {
+          "use strict";
+          return {
+            init: function() {
+              handleDataTableButtons();
+            }
+          };
+        }();
+
+        $('#datatable').dataTable();
+
+        $('#datatable-keytable').DataTable({
+          keys: true
+        });
+
+        $('#datatable-responsive').DataTable();
+
+        $('#datatable-scroller').DataTable({
+          ajax: "js/datatables/json/scroller-demo.json",
+          deferRender: true,
+          scrollY: 380,
+          scrollCollapse: true,
+          scroller: true
+        });
+
+        $('#datatable-fixed-header').DataTable({
+          fixedHeader: true
+        });
+
+        var $datatable = $('#datatable-checkbox');
+
+        $datatable.dataTable({
+          'order': [[ 1, 'asc' ]],
+          'columnDefs': [
+            { orderable: false, targets: [0] }
+          ]
+        });
+        $datatable.on('draw.dt', function() {
+          $('input').iCheck({
+            checkboxClass: 'icheckbox_flat-green'
+          });
+        });
+
+        TableManageButtons.init();
+      });
+    </script>
+    <!-- /Datatables -->
+  </body>
+</html>

@@ -6,4 +6,4 @@ class InscricaoForm(forms.ModelForm):
 
 	class Meta:
 		model = Inscricao
-		fields = ('nome','valor','CPU','RAM','SO','Armazenamento')
+		fields = ('nome','valor','CPU','clockCPU','RAM','SO','armazenamento','scaleup','scaledown','datacenters')

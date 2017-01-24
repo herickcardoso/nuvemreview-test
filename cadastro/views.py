@@ -26,6 +26,21 @@ class Listar(ListView):
     context_object = 'inscricao_list'
     paginate_by = 10
 
+#class Barras(ListGraphBar):
+#    template_name = 'barras.html'
+#    model = Inscricao
+#    context_object = 'barras_list'
+def barras(request):
+    return render(request, 'barras.html')
+
+def radar(request):
+    return render(request, 'radar.html')
+
+def review(request):
+    return render(request, 'review.html')
+
+def table(request):
+    return render(request, 'table.html')
 
 def lista(request):
     # pagination

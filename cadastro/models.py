@@ -3,12 +3,17 @@ from django.db import models
 
 
 class Inscricao(models.Model):
-    nome = models.CharField('serviço', max_length=100)
-    valor = models.CharField('valor', max_length=20, unique=True)
-    CPU = models.IntegerField()
-    RAM = models.CharField('RAM', max_length=20, unique=True)
-    SO = models.CharField('S.O.', max_length=20, unique=True)
-    Armazenamento = models.CharField('Armazenamento', max_length=20, unique=True)
+    nome = models.CharField('Serviço', max_length=100)
+    #link = models.CharField('link', max_length=200)
+    valor = models.DecimalField('Valor $', max_digits=5, decimal_places=2)
+    CPU = models.PositiveSmallIntegerField('CPU',)
+    clockCPU =models.DecimalField('Clock', max_digits=5, decimal_places=2)
+    RAM = models.DecimalField('RAM', max_digits=5, decimal_places=1)
+    SO = models.CharField('S.O.', max_length=100)
+    armazenamento = models.CharField('Armazenamento',max_length=100)
+    scaleup = models.PositiveSmallIntegerField('Scale Up',)
+    scaledown = models.PositiveSmallIntegerField ('Scale Down',)
+    datacenters = models.PositiveSmallIntegerField('Datacenters',)
     #email = models.EmailField(unique=True)
     #telefone = models.CharField(max_length=20, blank=True)
     criado_em = models.DateTimeField('criado em', auto_now_add=True)
